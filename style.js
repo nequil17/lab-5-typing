@@ -32,7 +32,7 @@ $(document).keydown(function() {
     }   
 });
 
-$('body').keypress(function(which) {
+$('body').keypress(function(e) {
     keyPress = String.fromCharCode(event.which);
 });
 
@@ -57,10 +57,10 @@ function push() {
     $('#target-letter').text(sentChar);
     if (sentChar == keyPress) {
         $('#feedback').html(correct);
-    } else if (numTick == 50){
+    } 
+    else if (numTick == 50){
         gameEnd();
-    }
-    else if (numTick >= sentences[l].length) {
+    } else if (numTick >= sentences[l].length) {
         l++;
         $('#yellow-block').css('margin-left', "-15px");
         $('#sentence').html((sentences[l]).split(''));
@@ -68,7 +68,8 @@ function push() {
         numTick = 0;
         i = -1;
         return;
-    } else {
+    } 
+    else {
         $('#feedback').html(incorrect);
         numWrong++;
     }
@@ -86,5 +87,3 @@ function gameEnd() {
         alert('Ok');
     }  
 };
-
-
