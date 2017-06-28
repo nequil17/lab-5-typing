@@ -56,13 +56,17 @@ function push() {
     var sentChar = sentences[l].charAt(i);
     $('#target-letter').text(sentChar);
     if (sentChar == keyPress) {
+        
         $('#feedback').html(correct);
-    } 
-    else if (numTick == 50){
+        $("#yellow-block").animate({
+    marginLeft: '+=17px'
+}, 100);
+    } else if (numTick == 50){
         gameEnd();
     } else if (numTick >= sentences[l].length) {
+        
         l++;
-        $('#yellow-block').css('margin-left', "-15px");
+        // $('#yellow-block').css('margin-left', "-15px");
         $('#sentence').html((sentences[l]).split(''));
         $('#feedback').html('');
         numTick = 0;
